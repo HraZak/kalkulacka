@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const DivLayout = styled.div``;
+export const DivLayout = styled.div`
+  background-color: #003f8b;
+  min-width: 100vw;
+  min-height: 100vh;
+`;
 
 export const DivGrid = styled.div`
   display: grid;
