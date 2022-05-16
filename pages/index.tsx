@@ -4,6 +4,8 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import styles from '../styles/Home.module.css';
 
+const Layout = styled.div``;
+
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
