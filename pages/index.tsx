@@ -14,6 +14,17 @@ const Home: NextPage = () => {
   const [zadano, setZadano] = useState('24+5');
   const [cislo, setCislo] = useState('24');
 
+  const pridatCislo = (x: string) => {
+    switch (x) {
+      case '.':
+        if (!cislo.includes('.') && cislo !== '') setCislo((pre) => pre + '.');
+      case '0':
+        if (cislo !== '0') setCislo((pre) => pre + '0');
+      default:
+        setCislo((pre) => (pre === '0' ? x : pre + x));
+    }
+  };
+
   return (
     <DivLayout>
       <Head>
@@ -41,48 +52,43 @@ const Home: NextPage = () => {
         </DivButton>
         <DivButton pozice='deleno'>/</DivButton>
 
-        <DivButton pozice='sedm' onClick={() => setCislo(cislo + '7')}>
+        <DivButton pozice='sedm' onClick={() => pridatCislo('7')}>
           7
         </DivButton>
-        <DivButton pozice='osm' onClick={() => setCislo(cislo + '8')}>
+        <DivButton pozice='osm' onClick={() => pridatCislo('8')}>
           8
         </DivButton>
-        <DivButton pozice='devet' onClick={() => setCislo(cislo + '9')}>
+        <DivButton pozice='devet' onClick={() => pridatCislo('9')}>
           9
         </DivButton>
         <DivButton pozice='krat'>*</DivButton>
 
-        <DivButton pozice='ctyri' onClick={() => setCislo(cislo + '4')}>
+        <DivButton pozice='ctyri' onClick={() => pridatCislo('4')}>
           4
         </DivButton>
-        <DivButton pozice='pet' onClick={() => setCislo(cislo + '5')}>
+        <DivButton pozice='pet' onClick={() => pridatCislo('5')}>
           5
         </DivButton>
-        <DivButton pozice='sest' onClick={() => setCislo(cislo + '6')}>
+        <DivButton pozice='sest' onClick={() => pridatCislo('6')}>
           6
         </DivButton>
         <DivButton pozice='plus'>+</DivButton>
 
-        <DivButton pozice='jedna' onClick={() => setCislo(cislo + '1')}>
+        <DivButton pozice='jedna' onClick={() => pridatCislo('1')}>
           1
         </DivButton>
-        <DivButton pozice='dva' onClick={() => setCislo(cislo + '2')}>
+        <DivButton pozice='dva' onClick={() => pridatCislo('2')}>
           2
         </DivButton>
-        <DivButton pozice='tri' onClick={() => setCislo(cislo + '3')}>
+        <DivButton pozice='tri' onClick={() => pridatCislo('3')}>
           3
         </DivButton>
         <DivButton pozice='minus'>-</DivButton>
 
-        <DivButton
-          pozice='tecka'
-          onClick={() => {
-            if (!cislo.includes('.') && cislo !== '') setCislo(cislo + '.');
-          }}
-        >
+        <DivButton pozice='tecka' onClick={() => pridatCislo('.')}>
           .
         </DivButton>
-        <DivButton pozice='nula' onClick={() => setCislo(cislo + '0')}>
+        <DivButton pozice='nula' onClick={() => pridatCislo('0')}>
           0
         </DivButton>
         <DivButton pozice='rovno'>=</DivButton>
