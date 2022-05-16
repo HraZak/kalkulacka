@@ -44,6 +44,16 @@ export const DivButton = styled.button<{ pozice: string }>`
 `;
 
 export const DivDisplay = styled.div`
+  display: grid;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+
   background-color: #000;
+  color: #fff;
   grid-area: display;
 `;
+
+export const DivDisplayCislo = styled.div``;
+
+export const DivDisplayZadano = styled.div``;
