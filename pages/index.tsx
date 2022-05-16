@@ -8,7 +8,6 @@ const Home: NextPage = () => {
       <Head>
         <title>Kalkulačka</title>
         <meta name='description' content='Kalkulačka' />
-        <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <DivGrid>
