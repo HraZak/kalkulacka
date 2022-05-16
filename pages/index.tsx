@@ -74,7 +74,14 @@ const Home: NextPage = () => {
         </DivButton>
         <DivButton pozice='minus'>-</DivButton>
 
-        <DivButton pozice='tecka'>.</DivButton>
+        <DivButton
+          pozice='tecka'
+          onClick={() => {
+            if (!cislo.includes('.') && cislo !== '') setCislo(cislo + '.');
+          }}
+        >
+          .
+        </DivButton>
         <DivButton pozice='nula' onClick={() => setCislo(cislo + '0')}>
           0
         </DivButton>
