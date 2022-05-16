@@ -1,6 +1,11 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { DivButton, DivDisplay, DivGrid, DivLayout } from '../components';
+import {
+  DivButton,
+  DivDisplay,
+  DivGrid,
+  DivLayout,
+} from '../components/componenty';
 
 const Home: NextPage = () => {
   return (
