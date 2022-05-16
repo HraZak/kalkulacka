@@ -35,4 +35,7 @@ export const DivButton = styled.button<{ pozice: string }>`
   cursor: pointer;
 `;
 
-export const DivDisplay = styled.div``;
+export const DivDisplay = styled.div`
+  background-color: #000;
+  grid-area: display;
+`;
