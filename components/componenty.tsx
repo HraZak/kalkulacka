@@ -5,6 +5,8 @@ export const DivLayout = styled.div`
 
   min-width: 100vw;
   min-height: 100vh;
+
+  font-size: 2rem;
 `;
 
 export const DivGrid = styled.div`
@@ -47,13 +49,20 @@ export const DivDisplay = styled.div`
   display: grid;
 
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: 1fr 2fr;
+
+  align-items: center;
 
   background-color: #000;
   color: #fff;
   grid-area: display;
 `;
 
-export const DivDisplayCislo = styled.div``;
+export const DivDisplayCislo = styled.div`
+  text-align: right;
+  font-size: 3rem;
+`;
 
-export const DivDisplayZadano = styled.div``;
+export const DivDisplayZadano = styled.div`
+  text-align: right;
+`;
