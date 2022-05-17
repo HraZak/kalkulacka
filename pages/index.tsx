@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         if (cislo !== '0') setCislo((pre) => pre + '0');
         break;
       default:
-        setCislo((pre) => (pre === '0' ? x : pre + x));
+        setCislo((pre) => pre + x);
         break;
     }
   };
