@@ -35,6 +35,15 @@ const Home: NextPage = () => {
     setOperator('');
   };
 
+  const zmenitOperator = (x: string) => {
+    if (operator && zadano && !cislo) setOperator(x);
+    else if (!operator && !zadano && cislo) {
+      setOperator(x);
+      setZadano(cislo);
+      setCislo('');
+    }
+  };
+
   return (
     <DivLayout>
       <Head>
