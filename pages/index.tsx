@@ -32,6 +32,7 @@ const Home: NextPage = () => {
   const reset = () => {
     setZadano('');
     setCislo('');
+    setOperator('');
   };
 
   return (
