@@ -18,10 +18,13 @@ const Home: NextPage = () => {
     switch (x) {
       case '.':
         if (!cislo.includes('.') && cislo !== '') setCislo((pre) => pre + '.');
+        break;
       case '0':
         if (cislo !== '0') setCislo((pre) => pre + '0');
+        break;
       default:
         setCislo((pre) => (pre === '0' ? x : pre + x));
+        break;
     }
   };
 
