@@ -45,8 +45,7 @@ const Home: NextPage = () => {
       setZadano(cislo.endsWith('.') ? cislo.slice(0, -1) : cislo);
       setCislo('');
     } else if (operator && zadano && cislo) {
-      spocitat();
-      setZadano(cislo);
+      setZadano(`${spocitat()}`);
       setCislo('');
       setOperator(x);
     }
@@ -75,6 +74,7 @@ const Home: NextPage = () => {
 
       reset();
       setCislo(`${temp}`);
+      return temp;
     }
   };
 
