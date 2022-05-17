@@ -96,7 +96,10 @@ const Home: NextPage = () => {
         <DivButton pozice='ac' onClick={() => reset()}>
           AC
         </DivButton>
-        <DivButton pozice='del' onClick={() => setCislo(cislo.slice(0, -1))}>
+        <DivButton
+          pozice='del'
+          onClick={() => setCislo((pre) => pre.slice(0, -1))}
+        >
           DEL
         </DivButton>
         <DivButton pozice='deleno' onClick={() => zmenitOperator('/')}>
