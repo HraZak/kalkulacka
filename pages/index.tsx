@@ -36,7 +36,7 @@ const Home: NextPage = () => {
   };
 
   const zmenitOperator = (x: string) => {
-    if (operator && zadano && !cislo) setOperator(x);
+    if (zadano && !cislo) setOperator(x);
     else if (!operator && !zadano && cislo) {
       setOperator(x);
       setZadano(cislo);
