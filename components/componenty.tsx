@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const DivLayout = styled.div`
+  font-family: monospace;
   background-color: #003f8b;
 
   min-width: 100vw;
@@ -35,6 +36,8 @@ export const DivGrid = styled.div`
 `;
 
 export const DivButton = styled.button<{ pozice: string }>`
+  font-family: monospace;
+  font-size: 2rem;
   background-color: #bfd2e4;
   grid-area: ${(props) => props.pozice};
   cursor: pointer;
