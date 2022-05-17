@@ -64,6 +64,7 @@ export const DivDisplay = styled.div`
 
 export const DivDisplayZadano = styled.div`
   width: 100%;
+  user-select: all;
   overflow-x: auto;
   text-align: right;
 `;
