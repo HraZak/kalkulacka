@@ -28,6 +28,11 @@ const Home: NextPage = () => {
     }
   };
 
+  const reset = () => {
+    setZadano('');
+    setCislo('');
+  };
+
   return (
     <DivLayout>
       <Head>
@@ -41,13 +46,7 @@ const Home: NextPage = () => {
           <DivDisplayCislo>{cislo}</DivDisplayCislo>
         </DivDisplay>
 
-        <DivButton
-          pozice='ac'
-          onClick={() => {
-            setZadano('');
-            setCislo('');
-          }}
-        >
+        <DivButton pozice='ac' onClick={() => reset()}>
           AC
         </DivButton>
         <DivButton pozice='del' onClick={() => setCislo(cislo.slice(0, -1))}>
