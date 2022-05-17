@@ -62,15 +62,12 @@ export const DivDisplay = styled.div`
   grid-area: display;
 `;
 
-export const DivDisplayCislo = styled.div`
-  width: 100%;
-  overflow-x: auto;
-  text-align: right;
-  font-size: 3rem;
-`;
-
 export const DivDisplayZadano = styled.div`
   width: 100%;
   overflow-x: auto;
   text-align: right;
+`;
+
+export const DivDisplayCislo = styled(DivDisplayZadano)`
+  font-size: 3rem;
 `;
