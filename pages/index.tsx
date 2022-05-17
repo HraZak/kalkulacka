@@ -41,6 +41,30 @@ const Home: NextPage = () => {
       setOperator(x);
       setZadano(cislo);
       setCislo('');
+
+  const spocitat = () => {
+    if (operator && zadano && cislo) {
+      let temp = 0;
+      let temp_zadano = parseFloat(zadano);
+      let temp_cislo = parseFloat(cislo);
+
+      switch (operator) {
+        case '+':
+          temp = temp_zadano + temp_cislo;
+          break;
+        case '-':
+          temp = temp_zadano - temp_cislo;
+          break;
+        case '*':
+          temp = temp_zadano * temp_cislo;
+          break;
+        case '/':
+          temp = temp_zadano / temp_cislo;
+          break;
+      }
+
+      reset();
+      setZadano(`${temp}`);
     }
   };
 
