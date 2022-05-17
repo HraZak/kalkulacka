@@ -41,6 +41,11 @@ const Home: NextPage = () => {
       setOperator(x);
       setZadano(cislo);
       setCislo('');
+    } else if (operator && zadano && cislo) {
+      spocitat();
+      setOperator(x);
+    }
+  };
 
   const spocitat = () => {
     if (operator && zadano && cislo) {
