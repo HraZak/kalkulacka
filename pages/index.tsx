@@ -53,7 +53,9 @@ const Home: NextPage = () => {
 
       <DivGrid>
         <DivDisplay>
-          <DivDisplayZadano>{zadano}</DivDisplayZadano>
+          <DivDisplayZadano>
+            {zadano} {operator}
+          </DivDisplayZadano>
           <DivDisplayCislo>{cislo}</DivDisplayCislo>
         </DivDisplay>
 
