@@ -65,7 +65,9 @@ const Home: NextPage = () => {
         <DivButton pozice='del' onClick={() => setCislo(cislo.slice(0, -1))}>
           DEL
         </DivButton>
-        <DivButton pozice='deleno'>/</DivButton>
+        <DivButton pozice='deleno' onClick={() => zmenitOperator('/')}>
+          /
+        </DivButton>
 
         <DivButton pozice='sedm' onClick={() => pridatCislo('7')}>
           7
@@ -76,7 +78,9 @@ const Home: NextPage = () => {
         <DivButton pozice='devet' onClick={() => pridatCislo('9')}>
           9
         </DivButton>
-        <DivButton pozice='krat'>*</DivButton>
+        <DivButton pozice='krat' onClick={() => zmenitOperator('*')}>
+          *
+        </DivButton>
 
         <DivButton pozice='ctyri' onClick={() => pridatCislo('4')}>
           4
@@ -87,7 +91,9 @@ const Home: NextPage = () => {
         <DivButton pozice='sest' onClick={() => pridatCislo('6')}>
           6
         </DivButton>
-        <DivButton pozice='plus'>+</DivButton>
+        <DivButton pozice='plus' onClick={() => zmenitOperator('+')}>
+          +
+        </DivButton>
 
         <DivButton pozice='jedna' onClick={() => pridatCislo('1')}>
           1
@@ -98,7 +104,9 @@ const Home: NextPage = () => {
         <DivButton pozice='tri' onClick={() => pridatCislo('3')}>
           3
         </DivButton>
-        <DivButton pozice='minus'>-</DivButton>
+        <DivButton pozice='minus' onClick={() => zmenitOperator('-')}>
+          -
+        </DivButton>
 
         <DivButton pozice='tecka' onClick={() => pridatCislo('.')}>
           .
