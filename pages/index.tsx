@@ -11,8 +11,9 @@ import {
 } from '../components/componenty';
 
 const Home: NextPage = () => {
-  const [zadano, setZadano] = useState('24+5');
-  const [cislo, setCislo] = useState('24');
+  const [zadano, setZadano] = useState('24');
+  const [cislo, setCislo] = useState('2');
+  const [operator, setOperator] = useState('+');
 
   const pridatCislo = (x: string) => {
     switch (x) {
