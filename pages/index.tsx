@@ -138,7 +138,9 @@ const Home: NextPage = () => {
         <DivButton pozice='nula' onClick={() => pridatCislo('0')}>
           0
         </DivButton>
-        <DivButton pozice='rovno'>=</DivButton>
+        <DivButton pozice='rovno' onClick={() => spocitat()}>
+          =
+        </DivButton>
       </DivGrid>
     </DivLayout>
   );
