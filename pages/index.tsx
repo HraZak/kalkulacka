@@ -72,7 +72,7 @@ const Home: NextPage = () => {
       }
 
       reset();
-      setZadano(`${temp}`);
+      setCislo(`${temp}`);
     }
   };
 
