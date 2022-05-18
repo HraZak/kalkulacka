@@ -28,6 +28,52 @@ const tlacitkaOperatory = [
     pozice: 'minus',
   },
 ];
+const tlacitkaCisla = [
+  {
+    zobrazit: '0',
+    pozice: 'nula',
+  },
+  {
+    zobrazit: '1',
+    pozice: 'jedna',
+  },
+  {
+    zobrazit: '2',
+    pozice: 'dva',
+  },
+  {
+    zobrazit: '3',
+    pozice: 'tri',
+  },
+  {
+    zobrazit: '4',
+    pozice: 'ctyri',
+  },
+  {
+    zobrazit: '5',
+    pozice: 'pet',
+  },
+  {
+    zobrazit: '6',
+    pozice: 'sest',
+  },
+  {
+    zobrazit: '7',
+    pozice: 'sedm',
+  },
+  {
+    zobrazit: '8',
+    pozice: 'osm',
+  },
+  {
+    zobrazit: '9',
+    pozice: 'devet',
+  },
+  {
+    zobrazit: '.',
+    pozice: 'tecka',
+  },
+];
 
 const Home: NextPage = () => {
   const [zadano, setZadano] = useState('');
@@ -117,6 +163,13 @@ const Home: NextPage = () => {
             {zobrazit}
           </DivButton>
         ))}
+
+        {tlacitkaCisla.map(({ zobrazit, pozice }) => (
+          <DivButton pozice={pozice} onClick={() => pridatCislo(zobrazit)}>
+            {zobrazit}
+          </DivButton>
+        ))}
+
         <DivButton pozice='ac' onClick={() => reset()}>
           AC
         </DivButton>
@@ -125,43 +178,6 @@ const Home: NextPage = () => {
           onClick={() => setCislo((pre) => pre.slice(0, -1))}
         >
           DEL
-        </DivButton>
-
-        <DivButton pozice='sedm' onClick={() => pridatCislo('7')}>
-          7
-        </DivButton>
-        <DivButton pozice='osm' onClick={() => pridatCislo('8')}>
-          8
-        </DivButton>
-        <DivButton pozice='devet' onClick={() => pridatCislo('9')}>
-          9
-        </DivButton>
-
-        <DivButton pozice='ctyri' onClick={() => pridatCislo('4')}>
-          4
-        </DivButton>
-        <DivButton pozice='pet' onClick={() => pridatCislo('5')}>
-          5
-        </DivButton>
-        <DivButton pozice='sest' onClick={() => pridatCislo('6')}>
-          6
-        </DivButton>
-
-        <DivButton pozice='jedna' onClick={() => pridatCislo('1')}>
-          1
-        </DivButton>
-        <DivButton pozice='dva' onClick={() => pridatCislo('2')}>
-          2
-        </DivButton>
-        <DivButton pozice='tri' onClick={() => pridatCislo('3')}>
-          3
-        </DivButton>
-
-        <DivButton pozice='tecka' onClick={() => pridatCislo('.')}>
-          .
-        </DivButton>
-        <DivButton pozice='nula' onClick={() => pridatCislo('0')}>
-          0
         </DivButton>
         <DivButton pozice='rovno' onClick={() => spocitat()}>
           =
