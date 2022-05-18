@@ -10,6 +10,25 @@ import {
   DivLayout,
 } from '../components/componenty';
 
+const tlacitkaOperatory = [
+  {
+    zobrazit: '/',
+    pozice: 'deleno',
+  },
+  {
+    zobrazit: '*',
+    pozice: 'krat',
+  },
+  {
+    zobrazit: '+',
+    pozice: 'plus',
+  },
+  {
+    zobrazit: '-',
+    pozice: 'minus',
+  },
+];
+
 const Home: NextPage = () => {
   const [zadano, setZadano] = useState('');
   const [cislo, setCislo] = useState('');
@@ -93,6 +112,11 @@ const Home: NextPage = () => {
           <DivDisplayCislo>{cislo}</DivDisplayCislo>
         </DivDisplay>
 
+        {tlacitkaOperatory.map(({ zobrazit, pozice }) => (
+          <DivButton pozice={pozice} onClick={() => zmenitOperator(zobrazit)}>
+            {zobrazit}
+          </DivButton>
+        ))}
         <DivButton pozice='ac' onClick={() => reset()}>
           AC
         </DivButton>
@@ -101,9 +125,6 @@ const Home: NextPage = () => {
           onClick={() => setCislo((pre) => pre.slice(0, -1))}
         >
           DEL
-        </DivButton>
-        <DivButton pozice='deleno' onClick={() => zmenitOperator('/')}>
-          /
         </DivButton>
 
         <DivButton pozice='sedm' onClick={() => pridatCislo('7')}>
@@ -115,9 +136,6 @@ const Home: NextPage = () => {
         <DivButton pozice='devet' onClick={() => pridatCislo('9')}>
           9
         </DivButton>
-        <DivButton pozice='krat' onClick={() => zmenitOperator('*')}>
-          *
-        </DivButton>
 
         <DivButton pozice='ctyri' onClick={() => pridatCislo('4')}>
           4
@@ -128,9 +146,6 @@ const Home: NextPage = () => {
         <DivButton pozice='sest' onClick={() => pridatCislo('6')}>
           6
         </DivButton>
-        <DivButton pozice='plus' onClick={() => zmenitOperator('+')}>
-          +
-        </DivButton>
 
         <DivButton pozice='jedna' onClick={() => pridatCislo('1')}>
           1
@@ -140,9 +155,6 @@ const Home: NextPage = () => {
         </DivButton>
         <DivButton pozice='tri' onClick={() => pridatCislo('3')}>
           3
-        </DivButton>
-        <DivButton pozice='minus' onClick={() => zmenitOperator('-')}>
-          -
         </DivButton>
 
         <DivButton pozice='tecka' onClick={() => pridatCislo('.')}>
