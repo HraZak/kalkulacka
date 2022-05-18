@@ -158,14 +158,22 @@ const Home: NextPage = () => {
           <DivDisplayCislo>{cislo}</DivDisplayCislo>
         </DivDisplay>
 
-        {tlacitkaOperatory.map(({ zobrazit, pozice }) => (
-          <DivButton pozice={pozice} onClick={() => zmenitOperator(zobrazit)}>
+        {tlacitkaOperatory.map(({ zobrazit, pozice }, index) => (
+          <DivButton
+            key={index}
+            pozice={pozice}
+            onClick={() => zmenitOperator(zobrazit)}
+          >
             {zobrazit}
           </DivButton>
         ))}
 
-        {tlacitkaCisla.map(({ zobrazit, pozice }) => (
-          <DivButton pozice={pozice} onClick={() => pridatCislo(zobrazit)}>
+        {tlacitkaCisla.map(({ zobrazit, pozice }, index) => (
+          <DivButton
+            key={index}
+            pozice={pozice}
+            onClick={() => pridatCislo(zobrazit)}
+          >
             {zobrazit}
           </DivButton>
         ))}
