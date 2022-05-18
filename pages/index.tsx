@@ -103,6 +103,10 @@ const Home: NextPage = () => {
     setOperator('');
   };
 
+  const smazat = () => {
+    setCislo((pre) => pre.slice(0, -1));
+  };
+
   const zmenitOperator = (x: string) => {
     if (zadano && !cislo) setOperator(x);
     else if (!operator && !zadano && cislo) {
@@ -181,10 +185,7 @@ const Home: NextPage = () => {
         <DivButton pozice='ac' onClick={() => reset()}>
           AC
         </DivButton>
-        <DivButton
-          pozice='del'
-          onClick={() => setCislo((pre) => pre.slice(0, -1))}
-        >
+        <DivButton pozice='del' onClick={() => smazat()}>
           DEL
         </DivButton>
         <DivButton pozice='rovno' onClick={() => spocitat()}>
