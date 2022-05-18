@@ -176,6 +176,9 @@ const Home: NextPage = () => {
         case 'Backspace':
           smazat();
           break;
+        case 'Delete':
+          reset();
+          break;
       }
     }
   };
