@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   DivButton,
   DivDisplay,
@@ -146,6 +146,44 @@ const Home: NextPage = () => {
       return temp;
     }
   };
+
+  const klavesnice = (e: KeyboardEvent) => {
+    e.preventDefault();
+    if (!e.repeat) {
+      switch (e.key) {
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+        case '.':
+          pridatCislo(e.key);
+          break;
+        case '+':
+        case '-':
+        case '*':
+        case '/':
+          zmenitOperator(e.key);
+          break;
+        case 'Enter':
+          spocitat();
+          break;
+        case 'Backspace':
+          smazat();
+          break;
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', klavesnice);
+    return () => window.removeEventListener('keydown', klavesnice);
+  });
 
   return (
     <DivLayout>
