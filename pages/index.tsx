@@ -1,3 +1,4 @@
+import Decimal from 'decimal.js';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
@@ -122,28 +123,28 @@ const Home: NextPage = () => {
 
   const spocitat = () => {
     if (operator && zadano && cislo) {
-      let temp = 0;
+      let temp = new Decimal(0);
       let temp_zadano = parseFloat(zadano);
       let temp_cislo = parseFloat(cislo);
 
       switch (operator) {
         case '+':
-          temp = temp_zadano + temp_cislo;
+          temp = Decimal.sum(temp_zadano, temp_cislo);
           break;
         case '-':
-          temp = temp_zadano - temp_cislo;
+          temp = Decimal.sub(temp_zadano, temp_cislo);
           break;
         case '*':
-          temp = temp_zadano * temp_cislo;
+          temp = Decimal.mul(temp_zadano, temp_cislo);
           break;
         case '/':
-          temp = temp_zadano / temp_cislo;
+          temp = Decimal.div(temp_zadano, temp_cislo);
           break;
       }
 
       reset();
-      setCislo(`${temp}`);
-      return temp;
+      setCislo(temp.toFixed());
+      return temp.toFixed();
     }
   };
 
