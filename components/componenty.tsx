@@ -16,20 +16,20 @@ export const DivGrid = styled.div`
 
   max-width: 80vw;
   max-height: 80vh;
-  aspect-ratio: 2/3;
+  aspect-ratio: 5/6;
 
   background-color: #fff;
 
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(6, 1fr);
 
   grid-template-areas:
-    'display display display display'
-    'ac ac del deleno'
-    'sedm osm devet krat'
-    'ctyri pet sest plus'
-    'jedna dva tri minus'
-    'tecka nula rovno rovno';
+    'display display display display display'
+    'ac ac del deleno oteviraci'
+    'sedm osm devet krat uzaviraci'
+    'ctyri pet sest plus mocnina'
+    'jedna dva tri minus odmocnina'
+    'tecka nula rovno rovno rovno';
 
   gap: 2px;
   justify-content: center;

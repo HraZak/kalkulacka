@@ -233,6 +233,13 @@ const Home: NextPage = () => {
         <DivButton pozice='rovno' onClick={() => spocitat()}>
           =
         </DivButton>
+
+        <DivButton pozice='oteviraci'>(</DivButton>
+        <DivButton pozice='uzaviraci'>)</DivButton>
+        <DivButton pozice='mocnina'>
+          x<sup>2</sup>
+        </DivButton>
+        <DivButton pozice='odmocnina'>√</DivButton>
       </DivGrid>
     </DivLayout>
   );
