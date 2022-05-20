@@ -10,7 +10,7 @@ import {
   DivGrid,
   DivLayout,
 } from '../components/componenty';
-import { convertInfixToPostfix, evalPostfix } from '../components/postfix';
+import { vypocitej } from '../components/postfix';
 
 const tlacitkaOperatory = [
   {
