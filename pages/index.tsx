@@ -124,8 +124,8 @@ const Home: NextPage = () => {
   const spocitat = () => {
     if (operator && zadano && cislo) {
       let temp = new Decimal(0);
-      let temp_zadano = parseFloat(zadano);
-      let temp_cislo = parseFloat(cislo);
+      const temp_zadano = new Decimal(zadano);
+      const temp_cislo = new Decimal(cislo);
 
       switch (operator) {
         case '+':
