@@ -198,10 +198,8 @@ const Home: NextPage = () => {
 
       <DivGrid>
         <DivDisplay>
-          <DivDisplayZadano>
-            {zadano} {operator}
-          </DivDisplayZadano>
-          <DivDisplayCislo>{cislo}</DivDisplayCislo>
+          <DivDisplayZadano>{zadano.join('')}</DivDisplayZadano>
+          <DivDisplayCislo>{vysledek}</DivDisplayCislo>
         </DivDisplay>
 
         {tlacitkaOperatory.map(({ zobrazit, pozice }, index) => (
