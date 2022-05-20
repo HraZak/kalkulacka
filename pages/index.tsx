@@ -76,6 +76,45 @@ const tlacitkaCisla = [
   },
 ];
 
+const evalPostfix = (postfix: Array<string> | string) => {
+  if (typeof postfix === 'string') postfix = postfix.split(' ');
+  let stack = [];
+  for (const i of postfix) {
+    switch (i) {
+      case '+':
+      case '-':
+      case '*':
+      case '/':
+        let temp = new Decimal(0);
+        const druhy = new Decimal(stack.pop());
+        const prvni = new Decimal(stack.pop());
+
+        switch (i) {
+          case '+':
+            temp = Decimal.sum(prvni, druhy);
+            break;
+          case '-':
+            temp = Decimal.sub(prvni, druhy);
+            break;
+          case '*':
+            temp = Decimal.mul(prvni, druhy);
+            break;
+          case '/':
+            temp = Decimal.div(prvni, druhy);
+            break;
+        }
+
+        stack.push(temp.toFixed());
+        break;
+      default:
+        stack.push(i);
+        break;
+    }
+    console.log(stack);
+  }
+  return stack.pop();
+};
+
 const Home: NextPage = () => {
   const [zadano, setZadano] = useState('');
   const [cislo, setCislo] = useState('');
