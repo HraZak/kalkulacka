@@ -110,7 +110,6 @@ const evalPostfix = (postfix: Array<string> | string) => {
         stack.push(i);
         break;
     }
-    console.log(stack);
   }
   return stack.pop();
 };
