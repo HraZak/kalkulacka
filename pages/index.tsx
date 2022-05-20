@@ -77,11 +77,9 @@ const tlacitkaCisla = [
   },
 ];
 
-
 const Home: NextPage = () => {
-  const [zadano, setZadano] = useState('');
-  const [cislo, setCislo] = useState('');
-  const [operator, setOperator] = useState('');
+  const [zadano, setZadano] = useState(['5', '+', '3']);
+  const [vysledek, setVysledek] = useState('');
 
   const pridatCislo = (x: string) => {
     switch (x) {
