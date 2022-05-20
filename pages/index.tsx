@@ -99,9 +99,8 @@ const Home: NextPage = () => {
   };
 
   const reset = () => {
-    setZadano('');
-    setCislo('');
-    setOperator('');
+    setZadano([]);
+    setVysledek('');
   };
 
   const smazat = () => {
