@@ -104,7 +104,7 @@ const Home: NextPage = () => {
   };
 
   const smazat = () => {
-    setCislo((pre) => pre.slice(0, -1));
+    setZadano((pre) => pre.filter((x, i) => i < pre.length - 1));
   };
 
   const zmenitOperator = (x: string) => {
