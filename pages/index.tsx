@@ -78,7 +78,7 @@ const tlacitkaCisla = [
 ];
 
 const Home: NextPage = () => {
-  const [zadano, setZadano] = useState(['5', '+', '3']);
+  const [zadano, setZadano] = useState(['5', '+', '3', '*', '2']);
   const [vysledek, setVysledek] = useState('');
 
   const pridatCislo = (x: string) => {
