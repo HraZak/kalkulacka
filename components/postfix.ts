@@ -1,7 +1,7 @@
 import Decimal from 'decimal.js';
 
-export const evalPostfix = (postfix: Array<string> | string) => {
-  if (typeof postfix === 'string') postfix = postfix.split(' ');
+const evalPostfix = (postfixInput: Array<string>) => {
+  const postfix = [...postfixInput];
   let stack = [];
   for (const i of postfix) {
     switch (i) {
@@ -38,14 +38,14 @@ export const evalPostfix = (postfix: Array<string> | string) => {
   return stack.pop();
 };
 
-export const convertInfixToPostfix = (infix: string) => {
-  let infixArray = infix.split(' ');
-  infixArray.push('end');
+const convertInfixToPostfix = (infixInput: Array<string>) => {
+  const infix = [...infixInput];
+  infix.push('end');
   let stack = [];
   let postfix = [];
 
-  for (let i = 0; i < infixArray.length; ) {
-    const temp = infixArray[i];
+  for (let i = 0; i < infix.length; ) {
+    const temp = infix[i];
     switch (temp) {
       case 'end':
         if (stack.length === 0) i++;
