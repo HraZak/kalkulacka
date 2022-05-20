@@ -35,7 +35,7 @@ const evalPostfix = (postfixInput: Array<string>) => {
         break;
     }
   }
-  return stack.pop();
+  return stack.pop() ?? '';
 };
 
 const convertInfixToPostfix = (infixInput: Array<string>) => {
