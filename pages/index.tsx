@@ -121,30 +121,7 @@ const Home: NextPage = () => {
   };
 
   const spocitat = () => {
-    if (operator && zadano && cislo) {
-      let temp = new Decimal(0);
-      const temp_zadano = new Decimal(zadano);
-      const temp_cislo = new Decimal(cislo);
-
-      switch (operator) {
-        case '+':
-          temp = Decimal.sum(temp_zadano, temp_cislo);
-          break;
-        case '-':
-          temp = Decimal.sub(temp_zadano, temp_cislo);
-          break;
-        case '*':
-          temp = Decimal.mul(temp_zadano, temp_cislo);
-          break;
-        case '/':
-          temp = Decimal.div(temp_zadano, temp_cislo);
-          break;
-      }
-
-      reset();
-      setCislo(temp.toFixed());
-      return temp.toFixed();
-    }
+    setVysledek(vypocitej(zadano));
   };
 
   const klavesnice = (e: KeyboardEvent) => {
