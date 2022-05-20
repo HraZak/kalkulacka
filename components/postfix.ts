@@ -88,3 +88,7 @@ export const convertInfixToPostfix = (infix: string) => {
   }
   return postfix;
 };
+
+export const vypocitej = (zadano: Array<string>) => {
+  return evalPostfix(convertInfixToPostfix(zadano));
+};
