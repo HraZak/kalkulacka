@@ -111,15 +111,16 @@ const Home: NextPage = () => {
   };
 
   const zmenitOperator = (x: string) => {
-    if (zadano && !cislo) setOperator(x);
-    else if (!operator && !zadano && cislo) {
-      setOperator(x);
-      setZadano(cislo.endsWith('.') ? cislo.slice(0, -1) : cislo);
-      setCislo('');
-    } else if (operator && zadano && cislo) {
-      setZadano(`${spocitat()}`);
-      setCislo('');
-      setOperator(x);
+    switch (zadano[zadano.length - 1]) {
+      case '+':
+      case '-':
+      case '*':
+      case '/':
+        setZadano((pre) => pre.map((e, i) => (i < pre.length - 1 ? e : x)));
+        break;
+      default:
+        setZadano((pre) => [...pre, x]);
+        break;
     }
   };
 
