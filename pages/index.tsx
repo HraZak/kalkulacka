@@ -86,7 +86,11 @@ const Home: NextPage = () => {
   };
 
   const smazat = () => {
-    setZadano((pre) => pre.filter((e, i) => i < pre.length - 1));
+    if (zadano[zadano.length - 1].length > 1)
+      setZadano((pre) =>
+        pre.map((e, i) => (i < pre.length - 1 ? e : e.slice(0, -1))),
+      );
+    else setZadano((pre) => pre.filter((e, i) => i < pre.length - 1));
   };
 
   const spocitat = () => {
