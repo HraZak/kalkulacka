@@ -3,6 +3,7 @@ import Decimal from 'decimal.js';
 const evalPostfix = (postfixInput: Array<string>) => {
   const postfix = [...postfixInput];
   let stack = [];
+
   for (const i of postfix) {
     switch (i) {
       case '+':
@@ -40,9 +41,10 @@ const evalPostfix = (postfixInput: Array<string>) => {
 
 const convertInfixToPostfix = (infixInput: Array<string>) => {
   const infix = [...infixInput];
-  infix.push('end');
   let stack = [];
   let postfix = [];
+
+  infix.push('end');
 
   for (let i = 0; i < infix.length; ) {
     const temp = infix[i];
