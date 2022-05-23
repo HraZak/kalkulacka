@@ -16,13 +16,15 @@ const Home: NextPage = () => {
   const [zadano, setZadano] = useState(['(', '5', '+', '3', ')', '*', '2']);
   const [vysledek, setVysledek] = useState('');
 
+  const zadanoPosledni = zadano[zadano.length - 1] ?? '';
+
   const reset = () => {
     setZadano([]);
     setVysledek('');
   };
 
   const smazat = () => {
-    if (zadano[zadano.length - 1].length > 1)
+    if (zadanoPosledni.length > 1)
       setZadano((pre) =>
         pre.map((e, i) => (i < pre.length - 1 ? e : e.slice(0, -1))),
       );
@@ -38,8 +40,8 @@ const Home: NextPage = () => {
   };
 
   const pridatCislo = (x: string) => {
-    switch (zadano[zadano.length - 1]) {
-      case undefined:
+    switch (zadanoPosledni) {
+      case '':
       case '+':
       case '-':
       case '*':
@@ -70,7 +72,7 @@ const Home: NextPage = () => {
   };
 
   const zmenitOperator = (x: string) => {
-    switch (zadano[zadano.length - 1]) {
+    switch (zadanoPosledni) {
       case '+':
       case '-':
       case '*':
