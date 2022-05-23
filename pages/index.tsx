@@ -115,6 +115,12 @@ const Home: NextPage = () => {
         case 'Delete':
           reset();
           break;
+        case '(':
+          pridatZavorku('(');
+          break;
+        case ')':
+          pridatZavorku(')');
+          break;
       }
     }
   };
