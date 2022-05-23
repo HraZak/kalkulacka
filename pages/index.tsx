@@ -73,6 +73,9 @@ const Home: NextPage = () => {
 
   const zmenitOperator = (x: string) => {
     switch (zadanoPosledni) {
+      case '':
+      case '(':
+        break;
       case '+':
       case '-':
       case '*':
