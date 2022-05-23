@@ -42,7 +42,8 @@ const Home: NextPage = () => {
   const pridatZavorku = (x: string) => {
     switch (x) {
       case '(':
-        if (operatory.includes(zadanoPosledni)) setZadano((pre) => [...pre, x]);
+        if (operatory.includes(zadanoPosledni) || zadanoPosledni === '')
+          setZadano((pre) => [...pre, x]);
         break;
       case ')':
         if (!operatory.includes(zadanoPosledni) && zadanoPosledni !== '(')
