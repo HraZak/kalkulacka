@@ -1,3 +1,5 @@
+export const operatory = ['+', '-', '*', '/'];
+
 export const tlacitkaOperatory = [
   {
     zobrazit: '/',
