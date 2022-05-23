@@ -1,4 +1,5 @@
 import Decimal from 'decimal.js';
+import { operatory } from '../constants/math_const';
 
 const evalPostfix = (postfixInput: Array<string>) => {
   const postfix = [...postfixInput];
@@ -91,6 +92,24 @@ const convertInfixToPostfix = (infixInput: Array<string>) => {
   return postfix;
 };
 
+const repairInfix = (infixInput: Array<string>) => {
+  const infix = [...infixInput];
+
+  if (operatory.includes(infix[infix.length - 1])) infix.pop();
+
+  const pomerZavorek =
+    infix.filter((e) => e == '(').length - infix.filter((e) => e == ')').length;
+
+  if (pomerZavorek < 0)
+    for (let i = 0; i > pomerZavorek; i--) infix.unshift('(');
+  else if (pomerZavorek > 0)
+    for (let i = 0; i < pomerZavorek; i++) infix.push(')');
+
+  console.log(infix);
+
+  return infix;
+};
+
 export const vypocitej = (zadano: Array<string>) => {
-  return evalPostfix(convertInfixToPostfix(zadano));
+  return evalPostfix(convertInfixToPostfix(repairInfix(zadano)));
 };
