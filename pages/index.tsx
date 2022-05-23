@@ -102,20 +102,21 @@ const Home: NextPage = () => {
   };
 
   const pridatCislo = (x: string) => {
-    switch (x) {
-      case '.':
-        if (!cislo.includes('.')) {
-          if (cislo === '') setCislo('0.');
-          else setCislo((pre) => pre + '.');
-        }
-        break;
-      case '0':
-        if (cislo !== '0') setCislo((pre) => pre + '0');
+    switch (zadano[zadano.length - 1]) {
+      case undefined:
+      case '+':
+      case '-':
+      case '*':
+      case '/':
+      case '(':
+      case ')':
+        setZadano((pre) => [...pre, x]);
         break;
       default:
-        setCislo((pre) => (pre === '0' ? x : pre + x));
+        setZadano((pre) => pre.map((e, i) => (i < pre.length - 1 ? e : e + x)));
         break;
     }
+
     // switch (x) {
     //   case '.':
     //     if (!cislo.includes('.')) {
