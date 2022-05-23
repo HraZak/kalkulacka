@@ -116,6 +116,20 @@ const Home: NextPage = () => {
         setCislo((pre) => (pre === '0' ? x : pre + x));
         break;
     }
+    // switch (x) {
+    //   case '.':
+    //     if (!cislo.includes('.')) {
+    //       if (cislo === '') setCislo('0.');
+    //       else setCislo((pre) => pre + '.');
+    //     }
+    //     break;
+    //   case '0':
+    //     if (cislo !== '0') setCislo((pre) => pre + '0');
+    //     break;
+    //   default:
+    //     setCislo((pre) => (pre === '0' ? x : pre + x));
+    //     break;
+    // }
   };
 
   const zmenitOperator = (x: string) => {
