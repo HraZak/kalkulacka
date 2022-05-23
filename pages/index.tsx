@@ -46,7 +46,11 @@ const Home: NextPage = () => {
           setZadano((pre) => [...pre, x]);
         break;
       case ')':
-        if (!operatory.includes(zadanoPosledni) && zadanoPosledni !== '(')
+        if (
+          !operatory.includes(zadanoPosledni) &&
+          zadanoPosledni !== '(' &&
+          zadanoPosledni !== ''
+        )
           setZadano((pre) => [...pre, x]);
         break;
     }
