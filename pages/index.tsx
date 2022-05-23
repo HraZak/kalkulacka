@@ -93,6 +93,10 @@ const Home: NextPage = () => {
     setVysledek(vypocitej(zadano));
   };
 
+  const pridatZavorku = (x: string) => {
+    setZadano((pre) => [...pre, x]);
+  };
+
   const pridatCislo = (x: string) => {
     switch (x) {
       case '.':
@@ -208,8 +212,12 @@ const Home: NextPage = () => {
           =
         </DivButton>
 
-        <DivButton pozice='oteviraci'>(</DivButton>
-        <DivButton pozice='uzaviraci'>)</DivButton>
+        <DivButton pozice='oteviraci' onClick={() => pridatZavorku('(')}>
+          (
+        </DivButton>
+        <DivButton pozice='uzaviraci' onClick={() => pridatZavorku(')')}>
+          )
+        </DivButton>
         <DivButton pozice='mocnina'>
           x<sup>y</sup>
         </DivButton>
