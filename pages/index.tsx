@@ -41,13 +41,14 @@ const Home: NextPage = () => {
 
   const pridatCislo = (x: string) => {
     switch (zadanoPosledni) {
+      case ')':
+        break;
       case '':
       case '+':
       case '-':
       case '*':
       case '/':
       case '(':
-      case ')':
         setZadano((pre) => [...pre, x]);
         break;
       default:
