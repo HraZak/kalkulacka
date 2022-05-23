@@ -77,8 +77,21 @@ const tlacitkaCisla = [
 ];
 
 const Home: NextPage = () => {
-  const [zadano, setZadano] = useState(['5', '+', '3', '*', '2']);
+  const [zadano, setZadano] = useState(['(', '5', '+', '3', ')', '*', '2']);
   const [vysledek, setVysledek] = useState('');
+
+  const reset = () => {
+    setZadano([]);
+    setVysledek('');
+  };
+
+  const smazat = () => {
+    setZadano((pre) => pre.filter((x, i) => i < pre.length - 1));
+  };
+
+  const spocitat = () => {
+    setVysledek(vypocitej(zadano));
+  };
 
   const pridatCislo = (x: string) => {
     switch (x) {
@@ -97,15 +110,6 @@ const Home: NextPage = () => {
     }
   };
 
-  const reset = () => {
-    setZadano([]);
-    setVysledek('');
-  };
-
-  const smazat = () => {
-    setZadano((pre) => pre.filter((x, i) => i < pre.length - 1));
-  };
-
   const zmenitOperator = (x: string) => {
     if (zadano && !cislo) setOperator(x);
     else if (!operator && !zadano && cislo) {
@@ -117,10 +121,6 @@ const Home: NextPage = () => {
       setCislo('');
       setOperator(x);
     }
-  };
-
-  const spocitat = () => {
-    setVysledek(vypocitej(zadano));
   };
 
   const klavesnice = (e: KeyboardEvent) => {
