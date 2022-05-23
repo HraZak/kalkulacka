@@ -10,7 +10,11 @@ import {
   DivLayout,
 } from '../components/componenty';
 import { vypocitej } from '../components/postfix';
-import { tlacitkaCisla, tlacitkaOperatory } from '../constants/math_const';
+import {
+  operatory,
+  tlacitkaCisla,
+  tlacitkaOperatory,
+} from '../constants/math_const';
 
 const Home: NextPage = () => {
   const [zadano, setZadano] = useState(['(', '5', '+', '3', ')', '*', '2']);
@@ -36,7 +40,15 @@ const Home: NextPage = () => {
   };
 
   const pridatZavorku = (x: string) => {
-    setZadano((pre) => [...pre, x]);
+    switch (x) {
+      case '(':
+        if (operatory.includes(zadanoPosledni)) setZadano((pre) => [...pre, x]);
+        break;
+      case ')':
+        if (!operatory.includes(zadanoPosledni) && zadanoPosledni !== '(')
+          setZadano((pre) => [...pre, x]);
+        break;
+    }
   };
 
   const pridatCislo = (x: string) => {
