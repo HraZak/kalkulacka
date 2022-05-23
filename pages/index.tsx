@@ -210,9 +210,11 @@ const Home: NextPage = () => {
         <DivButton pozice='oteviraci'>(</DivButton>
         <DivButton pozice='uzaviraci'>)</DivButton>
         <DivButton pozice='mocnina'>
-          x<sup>2</sup>
+          x<sup>y</sup>
         </DivButton>
-        <DivButton pozice='odmocnina'>√</DivButton>
+        <DivButton pozice='odmocnina'>
+          <sup>x</sup>√
+        </DivButton>
       </DivGrid>
     </DivLayout>
   );
