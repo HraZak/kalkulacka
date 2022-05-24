@@ -9,6 +9,7 @@ import {
   DivGrid,
   DivLayout,
 } from '../components/componenty';
+import { smazat } from '../components/functions';
 import { repairInfix, vypocitej } from '../components/postfix';
 import {
   operatory,
@@ -27,12 +28,8 @@ const Home: NextPage = () => {
     setVysledek('');
   };
 
-  const smazat = () => {
-    if (zadanoPosledni.length > 1)
-      setZadano((pre) =>
-        pre.map((e, i) => (i < pre.length - 1 ? e : e.slice(0, -1))),
-      );
-    else setZadano((pre) => pre.filter((e, i) => i < pre.length - 1));
+  const useSmazat = () => {
+    setZadano((pre) => smazat(pre));
   };
 
   const useVypocitat = () => {
@@ -138,7 +135,7 @@ const Home: NextPage = () => {
           useVypocitat();
           break;
         case 'Backspace':
-          smazat();
+          useSmazat();
           break;
         case 'Delete':
           useReset();
@@ -194,7 +191,7 @@ const Home: NextPage = () => {
         <DivButton pozice='ac' onClick={() => useReset()}>
           AC
         </DivButton>
-        <DivButton pozice='del' onClick={() => smazat()}>
+        <DivButton pozice='del' onClick={() => useSmazat()}>
           DEL
         </DivButton>
         <DivButton pozice='rovno' onClick={() => useVypocitat()}>
