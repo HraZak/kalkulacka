@@ -42,6 +42,7 @@ export const DivButton = styled.button<{ pozice: string }>`
   grid-area: ${(props) => props.pozice};
   cursor: pointer;
   border: 0;
+  user-select: none;
 
   &:hover {
     background-color: #e6edf5;
@@ -64,7 +65,6 @@ export const DivDisplay = styled.div`
 
 export const DivDisplayZadano = styled.div`
   width: 100%;
-  user-select: all;
   overflow-x: auto;
   text-align: right;
 `;
