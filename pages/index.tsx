@@ -9,7 +9,7 @@ import {
   DivGrid,
   DivLayout,
 } from '../components/componenty';
-import { pridatZavorku, smazat } from '../components/functions';
+import { pridatZavorku, smazat, zmenitOperator } from '../components/functions';
 import { repairInfix, vypocitej } from '../components/postfix';
 import {
   operatory,
@@ -74,21 +74,8 @@ const Home: NextPage = () => {
     // }
   };
 
-  const zmenitOperator = (x: string) => {
-    switch (zadanoPosledni) {
-      case '':
-      case '(':
-        break;
-      case '+':
-      case '-':
-      case '*':
-      case '/':
-        setZadano((pre) => pre.map((e, i) => (i < pre.length - 1 ? e : x)));
-        break;
-      default:
-        setZadano((pre) => [...pre, x]);
-        break;
-    }
+  const useZmenitOperator = (x: string) => {
+    setZadano((pre) => zmenitOperator(pre, x));
   };
 
   const useKlavesnice = (e: KeyboardEvent) => {
@@ -112,7 +99,7 @@ const Home: NextPage = () => {
         case '-':
         case '*':
         case '/':
-          zmenitOperator(e.key);
+          useZmenitOperator(e.key);
           break;
         case 'Enter':
           useVypocitat();
@@ -155,7 +142,7 @@ const Home: NextPage = () => {
           <DivButton
             key={index}
             pozice={pozice}
-            onClick={() => zmenitOperator(zobrazit)}
+            onClick={() => useZmenitOperator(zobrazit)}
           >
             {zobrazit}
           </DivButton>

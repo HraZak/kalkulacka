@@ -39,3 +39,22 @@ export const pridatZavorku = (array: string[], x: string) => {
 
   return array_temp;
 };
+
+export const zmenitOperator = (array: string[], x: string) => {
+  const array_temp = [...array];
+
+  switch (arrayPosledni(array_temp)) {
+    case '':
+    case '(':
+      break;
+    case '+':
+    case '-':
+    case '*':
+    case '/':
+      return array_temp.map((e, i) => (i < array_temp.length - 1 ? e : x));
+    default:
+      return [...array_temp, x];
+  }
+
+  return array_temp;
+};
