@@ -1,8 +1,8 @@
-export const arrayPosledni = (array: Array<string>) => {
+export const arrayPosledni = (array: string[]) => {
   return array[array.length - 1] ?? '';
 };
 
-export const smazat = (array: Array<string>) => {
+export const smazat = (array: string[]) => {
   const array_temp = [...array];
 
   if (arrayPosledni(array_temp).length > 1)

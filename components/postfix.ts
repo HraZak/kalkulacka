@@ -1,7 +1,7 @@
 import Decimal from 'decimal.js';
 import { operatory } from '../constants/math_const';
 
-const evalPostfix = (postfixInput: Array<string>) => {
+const evalPostfix = (postfixInput: string[]) => {
   const postfix = [...postfixInput];
   let stack = [];
 
@@ -40,7 +40,7 @@ const evalPostfix = (postfixInput: Array<string>) => {
   return stack.pop() ?? '';
 };
 
-const convertInfixToPostfix = (infixInput: Array<string>) => {
+const convertInfixToPostfix = (infixInput: string[]) => {
   const infix = [...infixInput];
   let stack = [];
   let postfix = [];
@@ -92,7 +92,7 @@ const convertInfixToPostfix = (infixInput: Array<string>) => {
   return postfix;
 };
 
-export const repairInfix = (infixInput: Array<string>) => {
+export const repairInfix = (infixInput: string[]) => {
   const infix = [...infixInput];
 
   if (operatory.includes(infix[infix.length - 1])) infix.pop();
@@ -110,6 +110,6 @@ export const repairInfix = (infixInput: Array<string>) => {
   return infix;
 };
 
-export const vypocitej = (zadano: Array<string>) => {
+export const vypocitej = (zadano: string[]) => {
   return evalPostfix(convertInfixToPostfix(repairInfix(zadano)));
 };
