@@ -18,7 +18,7 @@ import {
 } from '../constants/math_const';
 
 const Home: NextPage = () => {
-  const [zadano, setZadano] = useState(['(', '5', '+', '3', ')', '*', '2']);
+  const [zadano, setZadano] = useState([]);
   const [vysledek, setVysledek] = useState('');
 
   const zadanoPosledni = zadano[zadano.length - 1] ?? '';
