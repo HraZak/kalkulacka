@@ -22,8 +22,6 @@ const Home: NextPage = () => {
   const [zadano, setZadano] = useState<string[]>([]);
   const [vysledek, setVysledek] = useState('');
 
-  const zadanoPosledni = zadano[zadano.length - 1] ?? '';
-
   const useReset = () => {
     setZadano([]);
     setVysledek('');
