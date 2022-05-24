@@ -108,7 +108,7 @@ const Home: NextPage = () => {
     }
   };
 
-  const klavesnice = (e: KeyboardEvent) => {
+  const useKlavesnice = (e: KeyboardEvent) => {
     e.preventDefault();
     if (!e.repeat) {
       switch (e.key) {
@@ -151,8 +151,8 @@ const Home: NextPage = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('keydown', klavesnice);
-    return () => window.removeEventListener('keydown', klavesnice);
+    window.addEventListener('keydown', useKlavesnice);
+    return () => window.removeEventListener('keydown', useKlavesnice);
   });
 
   return (
