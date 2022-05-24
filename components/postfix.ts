@@ -92,7 +92,7 @@ const convertInfixToPostfix = (infixInput: Array<string>) => {
   return postfix;
 };
 
-const repairInfix = (infixInput: Array<string>) => {
+export const repairInfix = (infixInput: Array<string>) => {
   const infix = [...infixInput];
 
   if (operatory.includes(infix[infix.length - 1])) infix.pop();

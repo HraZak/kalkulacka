@@ -9,7 +9,7 @@ import {
   DivGrid,
   DivLayout,
 } from '../components/componenty';
-import { vypocitej } from '../components/postfix';
+import { repairInfix, vypocitej } from '../components/postfix';
 import {
   operatory,
   tlacitkaCisla,
@@ -36,6 +36,7 @@ const Home: NextPage = () => {
   };
 
   const spocitat = () => {
+    setZadano(repairInfix(zadano));
     setVysledek(vypocitej(zadano));
   };
 
