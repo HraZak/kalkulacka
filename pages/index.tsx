@@ -22,7 +22,7 @@ const Home: NextPage = () => {
 
   const zadanoPosledni = zadano[zadano.length - 1] ?? '';
 
-  const reset = () => {
+  const useReset = () => {
     setZadano([]);
     setVysledek('');
   };
@@ -35,7 +35,7 @@ const Home: NextPage = () => {
     else setZadano((pre) => pre.filter((e, i) => i < pre.length - 1));
   };
 
-  const spocitat = () => {
+  const useVypocitat = () => {
     setZadano(repairInfix(zadano));
     setVysledek(vypocitej(zadano));
   };
@@ -135,13 +135,13 @@ const Home: NextPage = () => {
           zmenitOperator(e.key);
           break;
         case 'Enter':
-          spocitat();
+          useVypocitat();
           break;
         case 'Backspace':
           smazat();
           break;
         case 'Delete':
-          reset();
+          useReset();
           break;
         case '(':
           pridatZavorku('(');
@@ -191,13 +191,13 @@ const Home: NextPage = () => {
           </DivButton>
         ))}
 
-        <DivButton pozice='ac' onClick={() => reset()}>
+        <DivButton pozice='ac' onClick={() => useReset()}>
           AC
         </DivButton>
         <DivButton pozice='del' onClick={() => smazat()}>
           DEL
         </DivButton>
-        <DivButton pozice='rovno' onClick={() => spocitat()}>
+        <DivButton pozice='rovno' onClick={() => useVypocitat()}>
           =
         </DivButton>
 
