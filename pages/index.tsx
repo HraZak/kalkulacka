@@ -33,7 +33,7 @@ const Home: NextPage = () => {
   };
 
   const useVypocitat = () => {
-    setZadano(repairInfix(zadano));
+    setZadano((pre) => repairInfix(pre));
     setVysledek(vypocitej(zadano));
   };
 
