@@ -58,3 +58,38 @@ export const zmenitOperator = (array: string[], x: string) => {
 
   return array_temp;
 };
+
+export const pridatCislo = (array: string[], x: string) => {
+  const array_temp = [...array];
+
+  switch (arrayPosledni(array_temp)) {
+    case ')':
+      break;
+    case '':
+    case '+':
+    case '-':
+    case '*':
+    case '/':
+    case '(':
+      return [...array_temp, x];
+    default:
+      return array_temp.map((e, i) => (i < array_temp.length - 1 ? e : e + x));
+  }
+
+  return array_temp;
+
+  // switch (x) {
+  //   case '.':
+  //     if (!cislo.includes('.')) {
+  //       if (cislo === '') setCislo('0.');
+  //       else setCislo((pre) => pre + '.');
+  //     }
+  //     break;
+  //   case '0':
+  //     if (cislo !== '0') setCislo((pre) => pre + '0');
+  //     break;
+  //   default:
+  //     setCislo((pre) => (pre === '0' ? x : pre + x));
+  //     break;
+  // }
+};

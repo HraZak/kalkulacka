@@ -9,7 +9,12 @@ import {
   DivGrid,
   DivLayout,
 } from '../components/componenty';
-import { pridatZavorku, smazat, zmenitOperator } from '../components/functions';
+import {
+  pridatCislo,
+  pridatZavorku,
+  smazat,
+  zmenitOperator,
+} from '../components/functions';
 import { repairInfix, vypocitej } from '../components/postfix';
 import { tlacitkaCisla, tlacitkaOperatory } from '../constants/math_const';
 
@@ -37,37 +42,8 @@ const Home: NextPage = () => {
     setZadano((pre) => pridatZavorku(pre, x));
   };
 
-  const pridatCislo = (x: string) => {
-    switch (zadanoPosledni) {
-      case ')':
-        break;
-      case '':
-      case '+':
-      case '-':
-      case '*':
-      case '/':
-      case '(':
-        setZadano((pre) => [...pre, x]);
-        break;
-      default:
-        setZadano((pre) => pre.map((e, i) => (i < pre.length - 1 ? e : e + x)));
-        break;
-    }
-
-    // switch (x) {
-    //   case '.':
-    //     if (!cislo.includes('.')) {
-    //       if (cislo === '') setCislo('0.');
-    //       else setCislo((pre) => pre + '.');
-    //     }
-    //     break;
-    //   case '0':
-    //     if (cislo !== '0') setCislo((pre) => pre + '0');
-    //     break;
-    //   default:
-    //     setCislo((pre) => (pre === '0' ? x : pre + x));
-    //     break;
-    // }
+  const usePridatCislo = (x: string) => {
+    setZadano((pre) => pridatCislo(pre, x));
   };
 
   const useZmenitOperator = (x: string) => {
@@ -89,7 +65,7 @@ const Home: NextPage = () => {
         case '8':
         case '9':
         case '.':
-          pridatCislo(e.key);
+          usePridatCislo(e.key);
           break;
         case '+':
         case '-':
@@ -148,7 +124,7 @@ const Home: NextPage = () => {
           <DivButton
             key={index}
             pozice={pozice}
-            onClick={() => pridatCislo(zobrazit)}
+            onClick={() => usePridatCislo(zobrazit)}
           >
             {zobrazit}
           </DivButton>
