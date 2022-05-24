@@ -11,11 +11,7 @@ import {
 } from '../components/componenty';
 import { pridatZavorku, smazat, zmenitOperator } from '../components/functions';
 import { repairInfix, vypocitej } from '../components/postfix';
-import {
-  operatory,
-  tlacitkaCisla,
-  tlacitkaOperatory,
-} from '../constants/math_const';
+import { tlacitkaCisla, tlacitkaOperatory } from '../constants/math_const';
 
 const Home: NextPage = () => {
   const [zadano, setZadano] = useState<string[]>([]);
