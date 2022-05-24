@@ -9,7 +9,7 @@ import {
   DivGrid,
   DivLayout,
 } from '../components/componenty';
-import { smazat } from '../components/functions';
+import { pridatZavorku, smazat } from '../components/functions';
 import { repairInfix, vypocitej } from '../components/postfix';
 import {
   operatory,
@@ -37,25 +37,8 @@ const Home: NextPage = () => {
     setVysledek(vypocitej(zadano));
   };
 
-  const pridatZavorku = (x: string) => {
-    switch (x) {
-      case '(':
-        if (
-          operatory.includes(zadanoPosledni) ||
-          zadanoPosledni === '' ||
-          zadanoPosledni === '('
-        )
-          setZadano((pre) => [...pre, x]);
-        break;
-      case ')':
-        if (
-          !operatory.includes(zadanoPosledni) &&
-          zadanoPosledni !== '(' &&
-          zadanoPosledni !== ''
-        )
-          setZadano((pre) => [...pre, x]);
-        break;
-    }
+  const usePridatZavorku = (x: string) => {
+    setZadano((pre) => pridatZavorku(pre, x));
   };
 
   const pridatCislo = (x: string) => {
@@ -141,10 +124,10 @@ const Home: NextPage = () => {
           useReset();
           break;
         case '(':
-          pridatZavorku('(');
+          usePridatZavorku('(');
           break;
         case ')':
-          pridatZavorku(')');
+          usePridatZavorku(')');
           break;
       }
     }
@@ -198,10 +181,10 @@ const Home: NextPage = () => {
           =
         </DivButton>
 
-        <DivButton pozice='oteviraci' onClick={() => pridatZavorku('(')}>
+        <DivButton pozice='oteviraci' onClick={() => usePridatZavorku('(')}>
           (
         </DivButton>
-        <DivButton pozice='uzaviraci' onClick={() => pridatZavorku(')')}>
+        <DivButton pozice='uzaviraci' onClick={() => usePridatZavorku(')')}>
           )
         </DivButton>
         <DivButton pozice='mocnina'>
