@@ -1,6 +1,6 @@
 import { operatory } from '../constants/math_const';
 
-export const arrayPosledni = (array: string[]) => {
+const arrayPosledni = (array: string[]) => {
   return array[array.length - 1] ?? '';
 };
 
