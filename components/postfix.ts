@@ -4,7 +4,7 @@ import { isFloat, porovnatOperatory } from './functions';
 
 const evalPostfix = (postfixInput: string[]) => {
   const postfix = [...postfixInput];
-  let stack = [];
+  const stack = [];
 
   for (const i of postfix) {
     switch (i) {
