@@ -105,8 +105,6 @@ export const repairInfix = (infixInput: string[]) => {
   else if (pomerZavorek > 0)
     for (let i = 0; i < pomerZavorek; i++) infix.push(')');
 
-  console.log(infix);
-
   return infix;
 };
 
