@@ -1,5 +1,12 @@
 export const operatory = ['+', '-', '*', '/'];
 
+export const operatoryPriority = {
+  '+': 1,
+  '-': 1,
+  '*': 2,
+  '/': 2,
+};
+
 export const tlacitkaOperatory = [
   {
     zobrazit: '/',
