@@ -1,5 +1,6 @@
 import Decimal from 'decimal.js';
 import { operatory } from '../constants/math_const';
+import { isFloat, porovnatOperatory } from './functions';
 
 const evalPostfix = (postfixInput: string[]) => {
   const postfix = [...postfixInput];
@@ -42,54 +43,26 @@ const evalPostfix = (postfixInput: string[]) => {
 
 const convertInfixToPostfix = (infixInput: string[]) => {
   const infix = [...infixInput];
-  let stack = [];
-  let postfix = [];
+  const stack: string[] = [];
+  const postfix: string[] = [];
 
-  infix.push('end');
-
-  for (let i = 0; i < infix.length; ) {
-    const temp = infix[i];
-    switch (temp) {
-      case 'end':
-        if (stack.length === 0) i++;
-        else postfix.push(stack.pop());
-        break;
-      case '+':
-      case '-':
-        if (stack.length === 0 || stack[stack.length - 1] === '(') {
-          stack.push(temp);
-          i++;
-        } else postfix.push(stack.pop());
-        break;
-      case '*':
-      case '/':
-        if (
-          stack.length === 0 ||
-          stack[stack.length - 1] === '(' ||
-          stack[stack.length - 1] === '+' ||
-          stack[stack.length - 1] === '-'
-        ) {
-          stack.push(temp);
-          i++;
-        } else postfix.push(stack.pop());
-        break;
-      case '(':
-        stack.push('(');
-        i++;
-        break;
-      case ')':
-        if (stack[stack.length - 1] === '(') {
-          stack.pop();
-          i++;
-        } else postfix.push(stack.pop());
-        break;
-      default:
-        postfix.push(temp);
-        i++;
-        break;
+  for (const i of infix) {
+    if (isFloat(i)) postfix.push(i);
+    else if (operatory.includes(i)) {
+      while (
+        operatory.includes(stack[stack.length - 1]) &&
+        porovnatOperatory(i, stack[stack.length - 1]) <= 0
+      )
+        postfix.push(stack.pop());
+      stack.push(i);
+    } else if (i === '(') stack.push(i);
+    else if (i === ')') {
+      while (stack[stack.length - 1] !== '(') postfix.push(stack.pop());
+      stack.pop();
     }
   }
-  return postfix;
+
+  return [...postfix, ...stack];
 };
 
 export const repairInfix = (infixInput: string[]) => {
