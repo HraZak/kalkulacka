@@ -1,5 +1,9 @@
 import { operatory } from '../constants/math_const';
 
+export const isFloat = (x: string) => {
+  return /^\d[\d.]*$/.test(x);
+};
+
 const arrayPosledni = (array: string[]) => {
   return array[array.length - 1] ?? '';
 };
