@@ -1,7 +1,14 @@
-import { operatory } from '../constants/math_const';
+import { operatory, operatoryPriority } from '../constants/math_const';
 
 export const isFloat = (x: string) => {
   return /^\d[\d.]*$/.test(x);
+};
+
+export const porovnatOperatory = (prvni: string, druhy: string) => {
+  const druhy_vaha = operatoryPriority[druhy];
+  const prvni_vaha = operatoryPriority[prvni];
+
+  return prvni_vaha > druhy_vaha ? 1 : prvni_vaha === druhy_vaha ? 0 : -1;
 };
 
 const arrayPosledni = (array: string[]) => {
