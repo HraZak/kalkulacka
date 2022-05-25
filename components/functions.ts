@@ -5,8 +5,8 @@ export const isFloat = (x: string) => {
 };
 
 export const porovnatOperatory = (prvni: string, druhy: string) => {
-  const druhy_vaha = operatoryPriority[druhy];
   const prvni_vaha = operatoryPriority[prvni];
+  const druhy_vaha = operatoryPriority[druhy];
 
   return prvni_vaha > druhy_vaha ? 1 : prvni_vaha === druhy_vaha ? 0 : -1;
 };
