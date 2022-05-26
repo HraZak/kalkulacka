@@ -69,6 +69,7 @@ const Home: NextPage = () => {
         case '-':
         case '*':
         case '/':
+        case '^':
           useZmenitOperator(e.key);
           break;
         case 'Enter':
@@ -143,9 +144,6 @@ const Home: NextPage = () => {
         </DivButton>
         <DivButton pozice='uzaviraci' onClick={() => usePridatZavorku(')')}>
           )
-        </DivButton>
-        <DivButton pozice='mocnina'>
-          x<sup>y</sup>
         </DivButton>
         <DivButton pozice='odmocnina'>
           <sup>x</sup>√

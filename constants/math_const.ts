@@ -1,10 +1,11 @@
-export const operatory = ['+', '-', '*', '/'];
+export const operatory = ['+', '-', '*', '/', '^'];
 
 export const operatoryPriority = {
-  '+': 1,
-  '-': 1,
-  '*': 2,
-  '/': 2,
+  '+': 2,
+  '-': 2,
+  '*': 3,
+  '/': 3,
+  '^': 4,
 };
 
 export const tlacitkaOperatory = [
@@ -23,6 +24,10 @@ export const tlacitkaOperatory = [
   {
     zobrazit: '-',
     pozice: 'minus',
+  },
+  {
+    zobrazit: '^',
+    pozice: 'mocnina',
   },
 ];
 

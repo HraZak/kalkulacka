@@ -53,21 +53,12 @@ export const pridatZavorku = (array: string[], x: string) => {
 
 export const zmenitOperator = (array: string[], x: string) => {
   const array_temp = [...array];
+  const zadanoPosledni = arrayPosledni(array_temp);
 
-  switch (arrayPosledni(array_temp)) {
-    case '':
-    case '(':
-      break;
-    case '+':
-    case '-':
-    case '*':
-    case '/':
-      return array_temp.map((e, i) => (i < array_temp.length - 1 ? e : x));
-    default:
-      return [...array_temp, x];
-  }
-
-  return array_temp;
+  if (zadanoPosledni === '' || zadanoPosledni === '') return array_temp;
+  else if (operatory.includes(zadanoPosledni))
+    return array_temp.map((e, i) => (i < array_temp.length - 1 ? e : x));
+  else return [...array_temp, x];
 };
 
 export const pridatCislo = (array: string[], x: string) => {
@@ -82,6 +73,7 @@ export const pridatCislo = (array: string[], x: string) => {
     case '-':
     case '*':
     case '/':
+    case '^':
     case '(':
       if (x === '.') return [...array_temp, '0.'];
       else return [...array_temp, x];

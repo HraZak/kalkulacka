@@ -12,6 +12,7 @@ const evalPostfix = (postfixInput: string[]) => {
       case '-':
       case '*':
       case '/':
+      case '^':
         let temp = new Decimal(0);
         const druhy = new Decimal(stack.pop());
         const prvni = new Decimal(stack.pop());
@@ -28,6 +29,9 @@ const evalPostfix = (postfixInput: string[]) => {
             break;
           case '/':
             temp = Decimal.div(prvni, druhy);
+            break;
+          case '^':
+            temp = Decimal.pow(prvni, druhy);
             break;
         }
 
@@ -49,11 +53,19 @@ const convertInfixToPostfix = (infixInput: string[]) => {
   for (const i of infix) {
     if (isFloat(i)) postfix.push(i);
     else if (operatory.includes(i)) {
-      while (
-        operatory.includes(stack[stack.length - 1]) &&
-        porovnatOperatory(i, stack[stack.length - 1]) <= 0
-      )
-        postfix.push(stack.pop());
+      while (operatory.includes(stack[stack.length - 1])) {
+        if (i === '^') {
+          if (porovnatOperatory(i, stack[stack.length - 1]) < 0) {
+            postfix.push(stack.pop());
+          } else {
+            break;
+          }
+        } else if (porovnatOperatory(i, stack[stack.length - 1]) <= 0) {
+          postfix.push(stack.pop());
+        } else {
+          break;
+        }
+      }
       stack.push(i);
     } else if (i === '(') stack.push(i);
     else if (i === ')') {
