@@ -74,7 +74,7 @@ const convertInfixToPostfix = (infixInput: string[]) => {
     }
   }
 
-  return [...postfix, ...stack];
+  return [...postfix, ...stack.reverse()];
 };
 
 export const repairInfix = (infixInput: string[]) => {
