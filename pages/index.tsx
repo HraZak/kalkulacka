@@ -14,6 +14,7 @@ import {
   pridatZavorku,
   smazat,
   zmenitOperator,
+  pridatOdmocninu,
 } from '../components/functions';
 import { repairInfix, vypocitej } from '../components/postfix';
 import { tlacitkaCisla, tlacitkaOperatory } from '../constants/math_const';
@@ -46,6 +47,10 @@ const Home: NextPage = () => {
 
   const useZmenitOperator = (x: string) => {
     setZadano((pre) => zmenitOperator(pre, x));
+  };
+
+  const usePridatOdmocninu = () => {
+    setZadano((pre) => pridatOdmocninu(pre));
   };
 
   const useKlavesnice = (e: KeyboardEvent) => {
@@ -145,8 +150,8 @@ const Home: NextPage = () => {
         <DivButton pozice='uzaviraci' onClick={() => usePridatZavorku(')')}>
           )
         </DivButton>
-        <DivButton pozice='odmocnina'>
-          <sup>x</sup>√
+        <DivButton pozice='odmocnina' onClick={() => usePridatOdmocninu()}>
+          √
         </DivButton>
       </DivGrid>
     </DivLayout>

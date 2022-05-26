@@ -113,3 +113,14 @@ export const pridatCislo = (array: string[], x: string) => {
 
   return array_temp;
 };
+
+export const pridatOdmocninu = (array: string[]) => {
+  let array_temp = [...array];
+
+  array_temp = zmenitOperator(array_temp, '^');
+  if (array_temp[array_temp.length - 1] === '^') {
+    array_temp.push('0.5');
+  }
+
+  return array_temp;
+};
