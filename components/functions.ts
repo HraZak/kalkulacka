@@ -18,11 +18,13 @@ const arrayPosledni = (array: string[]) => {
 export const smazat = (array: string[]) => {
   const array_temp = [...array];
 
-  if (arrayPosledni(array_temp).length > 1)
+  if (arrayPosledni(array_temp).length > 1) {
     return array_temp.map((e, i) =>
       i < array_temp.length - 1 ? e : e.slice(0, -1),
     );
-  else return array_temp.filter((e, i) => i < array_temp.length - 1);
+  } else {
+    return array_temp.filter((e, i) => i < array_temp.length - 1);
+  }
 };
 
 export const pridatZavorku = (array: string[], x: string) => {
@@ -35,16 +37,18 @@ export const pridatZavorku = (array: string[], x: string) => {
         operatory.includes(zadanoPosledni) ||
         zadanoPosledni === '' ||
         zadanoPosledni === '('
-      )
+      ) {
         return [...array_temp, x];
+      }
       break;
     case ')':
       if (
         !operatory.includes(zadanoPosledni) &&
         zadanoPosledni !== '(' &&
         zadanoPosledni !== ''
-      )
+      ) {
         return [...array_temp, x];
+      }
       break;
   }
 
@@ -55,10 +59,13 @@ export const zmenitOperator = (array: string[], x: string) => {
   const array_temp = [...array];
   const zadanoPosledni = arrayPosledni(array_temp);
 
-  if (zadanoPosledni === '' || zadanoPosledni === '') return array_temp;
-  else if (operatory.includes(zadanoPosledni))
+  if (zadanoPosledni === '' || zadanoPosledni === '') {
+    return array_temp;
+  } else if (operatory.includes(zadanoPosledni)) {
     return array_temp.map((e, i) => (i < array_temp.length - 1 ? e : x));
-  else return [...array_temp, x];
+  } else {
+    return [...array_temp, x];
+  }
 };
 
 export const pridatCislo = (array: string[], x: string) => {
@@ -75,23 +82,33 @@ export const pridatCislo = (array: string[], x: string) => {
     case '/':
     case '^':
     case '(':
-      if (x === '.') return [...array_temp, '0.'];
-      else return [...array_temp, x];
+      if (x === '.') {
+        return [...array_temp, '0.'];
+      } else {
+        return [...array_temp, x];
+      }
     default:
       if (x === '.') {
-        if (!zadanoPosledni.includes('.'))
+        if (!zadanoPosledni.includes('.')) {
           return array_temp.map((e, i) =>
             i < array_temp.length - 1 ? e : e + x,
           );
+        }
       } else if (x === '0') {
-        if (zadanoPosledni !== '0')
+        if (zadanoPosledni !== '0') {
           return array_temp.map((e, i) =>
             i < array_temp.length - 1 ? e : e + x,
           );
-      } else
-        return array_temp.map((e, i) =>
-          i < array_temp.length - 1 ? e : e + x,
-        );
+        }
+      } else {
+        if (zadanoPosledni === '0') {
+          return array_temp.map((e, i) => (i < array_temp.length - 1 ? e : x));
+        } else {
+          return array_temp.map((e, i) =>
+            i < array_temp.length - 1 ? e : e + x,
+          );
+        }
+      }
   }
 
   return array_temp;

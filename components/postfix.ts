@@ -51,8 +51,9 @@ const convertInfixToPostfix = (infixInput: string[]) => {
   const postfix: string[] = [];
 
   for (const i of infix) {
-    if (isFloat(i)) postfix.push(i);
-    else if (operatory.includes(i)) {
+    if (isFloat(i)) {
+      postfix.push(i);
+    } else if (operatory.includes(i)) {
       while (operatory.includes(stack[stack.length - 1])) {
         if (i === '^') {
           if (porovnatOperatory(i, stack[stack.length - 1]) < 0) {
@@ -67,9 +68,12 @@ const convertInfixToPostfix = (infixInput: string[]) => {
         }
       }
       stack.push(i);
-    } else if (i === '(') stack.push(i);
-    else if (i === ')') {
-      while (stack[stack.length - 1] !== '(') postfix.push(stack.pop());
+    } else if (i === '(') {
+      stack.push(i);
+    } else if (i === ')') {
+      while (stack[stack.length - 1] !== '(') {
+        postfix.push(stack.pop());
+      }
       stack.pop();
     }
   }
@@ -80,15 +84,22 @@ const convertInfixToPostfix = (infixInput: string[]) => {
 export const repairInfix = (infixInput: string[]) => {
   const infix = [...infixInput];
 
-  if (operatory.includes(infix[infix.length - 1])) infix.pop();
+  if (operatory.includes(infix[infix.length - 1])) {
+    infix.pop();
+  }
 
   const pomerZavorek =
     infix.filter((e) => e == '(').length - infix.filter((e) => e == ')').length;
 
-  if (pomerZavorek < 0)
-    for (let i = 0; i > pomerZavorek; i--) infix.unshift('(');
-  else if (pomerZavorek > 0)
-    for (let i = 0; i < pomerZavorek; i++) infix.push(')');
+  if (pomerZavorek < 0) {
+    for (let i = 0; i > pomerZavorek; i--) {
+      infix.unshift('(');
+    }
+  } else if (pomerZavorek > 0) {
+    for (let i = 0; i < pomerZavorek; i++) {
+      infix.push(')');
+    }
+  }
 
   return infix;
 };
