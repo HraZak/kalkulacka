@@ -93,7 +93,7 @@ const Home: NextPage = () => {
   useEffect(() => {
     window.addEventListener('keydown', useKlavesnice);
     return () => window.removeEventListener('keydown', useKlavesnice);
-  }, []);
+  });
 
   return (
     <DivLayout>
