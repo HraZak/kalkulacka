@@ -1,4 +1,5 @@
 import { operatory, operatoryPriority } from '../constants/math_const';
+import { evaluate, processExpression } from './vypocet';
 
 export const isFloat = (x: string) => {
   return parseFloat(x).toString() === x ? true : false;
@@ -123,4 +124,47 @@ export const pridatOdmocninu = (array: string[]) => {
   }
 
   return array_temp;
+};
+
+export const repairInfix = (infixInput: string[]) => {
+  const infix = [...infixInput];
+
+  if (operatory.includes(infix[infix.length - 1])) {
+    infix.pop();
+  }
+
+  const pomerZavorek =
+    infix.filter((e) => e == '(').length - infix.filter((e) => e == ')').length;
+
+  if (pomerZavorek < 0) {
+    for (let i = 0; i > pomerZavorek; i--) {
+      infix.unshift('(');
+    }
+  } else if (pomerZavorek > 0) {
+    for (let i = 0; i < pomerZavorek; i++) {
+      infix.push(')');
+    }
+  }
+
+  return infix;
+};
+
+const convertNumbersInArray = (array: readonly string[]) => {
+  const array_temp: Array<string | number> = [];
+
+  for (const i of array) {
+    if (isFloat(i)) {
+      array_temp.push(parseFloat(i));
+    } else {
+      array_temp.push(i);
+    }
+  }
+
+  return array_temp;
+};
+
+export const vypocitej = (zadano: string[]) => {
+  return evaluate(
+    processExpression(convertNumbersInArray(repairInfix(zadano))),
+  );
 };
