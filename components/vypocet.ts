@@ -47,6 +47,7 @@ export const processExpression = (tokens: Array<string | number>) => {
         break;
       default:
         wasFound = false;
+        break;
     }
   }
 
@@ -71,6 +72,7 @@ const processExpression1 = (tokens: Array<string | number>) => {
         break;
       default:
         wasFound = false;
+        break;
     }
   }
 
