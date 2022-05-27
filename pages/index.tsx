@@ -15,8 +15,9 @@ import {
   smazat,
   zmenitOperator,
   pridatOdmocninu,
+  repairInfix,
+  vypocitej,
 } from '../components/functions';
-import { repairInfix, vypocitej } from '../components/postfix';
 import { tlacitkaCisla, tlacitkaOperatory } from '../constants/math_const';
 
 const Home: NextPage = () => {
