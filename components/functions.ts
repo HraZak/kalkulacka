@@ -153,11 +153,7 @@ const convertNumbersInArray = (array: Readonly<string[]>) => {
   const array_temp: Array<string | number> = [];
 
   for (const i of array) {
-    if (isFloat(i)) {
-      array_temp.push(parseFloat(i));
-    } else {
-      array_temp.push(i);
-    }
+    array_temp.push(isFloat(i) ? parseFloat(i) : i);
   }
 
   return array_temp;
