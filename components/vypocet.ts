@@ -29,7 +29,7 @@ const acceptToken = (
   }
 };
 
-const processExpression = (tokens: Array<string | number>) => {
+export const processExpression = (tokens: Array<string | number>) => {
   const left = processExpression1(tokens);
 
   let wasFound = true;
