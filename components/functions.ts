@@ -149,7 +149,7 @@ export const repairInfix = (infixInput: string[]) => {
   return infix;
 };
 
-const convertNumbersInArray = (array: readonly string[]) => {
+const convertNumbersInArray = (array: Readonly<string[]>) => {
   const array_temp: Array<string | number> = [];
 
   for (const i of array) {

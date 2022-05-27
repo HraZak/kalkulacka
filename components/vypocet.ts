@@ -1,4 +1,4 @@
-const peekToken = (tokens: Array<string | number>) => {
+const peekToken = (tokens: Readonly<Array<string | number>>) => {
   if (tokens.length > 0) {
     return tokens[0];
   } else {
@@ -8,8 +8,8 @@ const peekToken = (tokens: Array<string | number>) => {
 
 const acceptToken = (
   tokens: Array<string | number>,
-  expectedValue: string | undefined,
-  expectedType: string | undefined,
+  expectedValue: Readonly<string | undefined>,
+  expectedType: Readonly<string | undefined>,
 ) => {
   const token = peekToken(tokens);
   if (
@@ -93,7 +93,7 @@ const processExpression2 = (tokens: Array<string | number>) => {
   }
 };
 
-export const evaluate = (tree) => {
+export const evaluate = (tree: Readonly<any>) => {
   if (typeof tree === 'number') {
     return tree;
   } else {
