@@ -1,7 +1,7 @@
 import { operatory, operatoryPriority } from '../constants/math_const';
 
 export const isFloat = (x: string) => {
-  return /^\d[\d.]*$/.test(x);
+  return parseFloat(x).toString() === x ? true : false;
 };
 
 export const porovnatOperatory = (prvni: string, druhy: string) => {
